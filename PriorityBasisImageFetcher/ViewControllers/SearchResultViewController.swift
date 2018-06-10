@@ -22,6 +22,8 @@ class SearchResultViewController: UIViewController {
     }
     
     func setUpGalleryCollectionView(){
+        galleryCollectionView.imageCollectionViewType = .threeImage
+        galleryCollectionView.updateCollectionView()
         galleryCollectionView.searchDataService = searchDataService
         galleryCollectionView.dataSource = galleryCollectionView
         galleryCollectionView.delegate = galleryCollectionView
@@ -34,7 +36,7 @@ class SearchResultViewController: UIViewController {
             searchApi.query = queryStr
             searchDataService.fetchImageData(endPoint: searchApi, success: { (photosRepo) in
                 self.galleryCollectionView?.photosRepo = photosRepo
-                self.galleryCollectionView?.reloadData()
+                self.galleryCollectionView.reloadData()
             }) { (error) in
                 print(error)
             }

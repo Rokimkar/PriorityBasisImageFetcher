@@ -8,13 +8,46 @@
 
 import UIKit
 
+enum ImageCollectionViewType{
+    case twoImage
+    case threeImage
+    case fourImage
+}
+
 class GalleryCollectionView: UICollectionView {
     
     weak var searchDataService : SearchDataService?
     var photosRepo : PhotosRepo?
+    var imageCollectionViewType = ImageCollectionViewType.threeImage
     
     func commonInit(){
         self.register(UINib.init(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
+    }
+    
+    func updateCollectionView(){
+        let flowLayout = UICollectionViewFlowLayout.init()
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+        var imageLinearDimension = Constants.screenWidth/2
+        flowLayout.itemSize = CGSize.init(width: imageLinearDimension, height: imageLinearDimension)
+        switch imageCollectionViewType {
+        case .twoImage:
+            imageLinearDimension -= 15
+            flowLayout.itemSize = CGSize.init(width: imageLinearDimension, height: imageLinearDimension)
+            break
+        case .threeImage:
+            imageLinearDimension = Constants.screenWidth/3
+            imageLinearDimension -= 15
+            flowLayout.itemSize = CGSize.init(width: imageLinearDimension, height: imageLinearDimension)
+            break
+        case .fourImage:
+            imageLinearDimension = Constants.screenWidth/4
+            imageLinearDimension -= 15
+            flowLayout.itemSize = CGSize.init(width: imageLinearDimension, height: imageLinearDimension)
+            break
+        }
+        self.setCollectionViewLayout(flowLayout, animated: true)
     }
 }
 
@@ -29,7 +62,11 @@ extension GalleryCollectionView : UICollectionViewDataSource,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCollectionViewCell", for: indexPath) as! GalleryCollectionViewCell
-        cell.backgroundColor = .red
+        cell.backgroundColor = .gray
+        cell.cellType = imageCollectionViewType
+        if let photo = photosRepo?.photo?[indexPath.row]{
+            cell.bindData(flickrPhoto: photo)
+        }
         return cell
     }
     
