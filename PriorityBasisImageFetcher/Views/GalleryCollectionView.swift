@@ -48,7 +48,7 @@ class GalleryCollectionView: UICollectionView {
             break
         }
         self.setCollectionViewLayout(flowLayout, animated: true)
-        self.reloadData()
+        //self.reloadData()
     }
 }
 
