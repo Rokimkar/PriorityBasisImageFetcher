@@ -9,6 +9,10 @@
 import UIKit
 
 class GalleryCollectionView: UICollectionView {
+    
+    weak var searchDataService : SearchDataService?
+    var photosRepo : PhotosRepo?
+    
     func commonInit(){
         self.register(UINib.init(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
     }
@@ -17,6 +21,9 @@ class GalleryCollectionView: UICollectionView {
 extension GalleryCollectionView : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let _ = photosRepo?.photo{
+            return photosRepo!.photo!.count
+        }
         return 1
     }
     

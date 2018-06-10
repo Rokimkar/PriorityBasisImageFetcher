@@ -30,6 +30,7 @@
 		9EBD963120CC496400B7547A /* PhotosRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD963020CC496400B7547A /* PhotosRepo.swift */; };
 		9EBD963420CC4C5F00B7547A /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD963320CC4C5F00B7547A /* FlickrPhoto.swift */; };
 		9EBD963620CC70AA00B7547A /* SearchPhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD963520CC70AA00B7547A /* SearchPhotosResponse.swift */; };
+		9EBD963820CD39C600B7547A /* ImageRouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD963720CD39C600B7547A /* ImageRouterManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		9EBD963020CC496400B7547A /* PhotosRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosRepo.swift; sourceTree = "<group>"; };
 		9EBD963320CC4C5F00B7547A /* FlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
 		9EBD963520CC70AA00B7547A /* SearchPhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotosResponse.swift; sourceTree = "<group>"; };
+		9EBD963720CD39C600B7547A /* ImageRouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRouterManager.swift; sourceTree = "<group>"; };
 		CD13934866DCC9DFB0F08901 /* Pods-PriorityBasisImageFetcher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriorityBasisImageFetcher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PriorityBasisImageFetcher/Pods-PriorityBasisImageFetcher.debug.xcconfig"; sourceTree = "<group>"; };
 		FF91DDE29DD20C843337B9E5 /* Pods_PriorityBasisImageFetcher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriorityBasisImageFetcher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +175,7 @@
 				9EBD961920CBCC6C00B7547A /* CacheRouter.swift */,
 				9EBD961320CBCC5700B7547A /* NetworkRouter.swift */,
 				9EBD961420CBCC5800B7547A /* RouterManager.swift */,
+				9EBD963720CD39C600B7547A /* ImageRouterManager.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBD963820CD39C600B7547A /* ImageRouterManager.swift in Sources */,
 				9EBD961C20CBCC6C00B7547A /* EndPointType.swift in Sources */,
 				9EBD963420CC4C5F00B7547A /* FlickrPhoto.swift in Sources */,
 				9EBD962420CBEC6000B7547A /* Constants.swift in Sources */,

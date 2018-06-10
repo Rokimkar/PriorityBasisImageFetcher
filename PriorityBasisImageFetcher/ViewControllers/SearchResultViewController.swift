@@ -22,6 +22,7 @@ class SearchResultViewController: UIViewController {
     }
     
     func setUpGalleryCollectionView(){
+        galleryCollectionView.searchDataService = searchDataService
         galleryCollectionView.dataSource = galleryCollectionView
         galleryCollectionView.delegate = galleryCollectionView
         galleryCollectionView.commonInit()
@@ -32,7 +33,8 @@ class SearchResultViewController: UIViewController {
             let searchApi = SearchEndpoint()
             searchApi.query = queryStr
             searchDataService.fetchImageData(endPoint: searchApi, success: { (photosRepo) in
-                print(photosRepo)
+                self.galleryCollectionView?.photosRepo = photosRepo
+                self.galleryCollectionView?.reloadData()
             }) { (error) in
                 print(error)
             }
