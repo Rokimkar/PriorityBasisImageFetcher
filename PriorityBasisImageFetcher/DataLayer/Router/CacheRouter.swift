@@ -28,7 +28,7 @@ class CacheRouter{
             do{
                 let cacheData = try Disk.retrieve("\(request.baseUrl)\(path)", from: .documents, as: Cache.self)
                 let now = Date()
-                let timeDifference = abs(Int(cacheData.savedTime.timeIntervalSince(now))/60)
+                let timeDifference = abs(Int(cacheData.savedTime.timeIntervalSince(now)))
                 let cacheDurationIntegerValue = Int(request.cacheTime)
                 if cacheDurationIntegerValue > timeDifference{
                     failure(NSError.init(domain: "Cache expired", code: 0, userInfo: [:]))
@@ -40,6 +40,32 @@ class CacheRouter{
             }
         }else{
             failure(NSError.init(domain: "Path not found", code: 1, userInfo: [:]))
+        }
+    }
+    
+    class func readData(for url:String,cacheTime : TimeInterval,success : response<Data>,failure : (Error)->Void){
+        do{
+            let cacheData = try Disk.retrieve(url, from: .documents, as: Cache.self)
+            let now = Date()
+            let timeDifference = abs(Int(cacheData.savedTime.timeIntervalSince(now)))
+            let cacheDurationIntegerValue = Int(cacheTime)
+            if cacheDurationIntegerValue > timeDifference{
+                failure(NSError.init(domain: "Cache expired", code: 0, userInfo: [:]))
+            }else{
+                success(cacheData.data)
+            }
+        }catch{
+            failure(error)
+        }
+    }
+    
+    class func writeToCache(for url : String,cacheTime : TimeInterval,data : Data){
+        do{
+            let cache = Cache.init(data: data)
+            try Disk.save(cache, to: .documents, as: url)
+            
+        }catch{
+            //Handle error.
         }
     }
 }

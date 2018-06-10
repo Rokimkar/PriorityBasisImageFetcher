@@ -2,4 +2,70 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PriorityBasisImageFetcher/DataLayer/Router/ImageRouterManager.swift"
+            timestampString = "550353679.677781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "fetchImage(for:success:failure:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PriorityBasisImageFetcher/DataLayer/Router/ImageRouterManager.swift"
+            timestampString = "550353679.6781991"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "fetchImage(for:success:failure:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; () in PriorityBasisImageFetcher.ImageRouterManager.fetchImage(for: Swift.String, success: (__ObjC.UIImage) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "PriorityBasisImageFetcher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snchit/Desktop/PriorityBasisImageFetcher/PriorityBasisImageFetcher/DataLayer/Router/ImageRouterManager.swift"
+                  timestampString = "550353486.394029"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "62">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data) -&gt; () in closure #2 (Swift.Error) -&gt; () in PriorityBasisImageFetcher.ImageRouterManager.fetchImage(for: Swift.String, success: (__ObjC.UIImage) -&gt; (), failure: (Swift.Error) -&gt; ()) -&gt; ()"
+                  moduleName = "PriorityBasisImageFetcher"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/snchit/Desktop/PriorityBasisImageFetcher/PriorityBasisImageFetcher/DataLayer/Router/ImageRouterManager.swift"
+                  timestampString = "550353486.396963"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
