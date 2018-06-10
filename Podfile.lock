@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.7.2)
+  - Disk (0.3.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - Disk
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Disk
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Disk: d1f55cd61f6ca20f368232d0c6e37e3c3dfcb63e
+
+PODFILE CHECKSUM: 9460de5886f0ebd9707e0e536a24d366c40e2811
+
+COCOAPODS: 1.5.3
