@@ -18,6 +18,11 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
+    override func prepareForReuse() {
+        contentImageView.image = nil
+        super.prepareForReuse()
+    }
+    
     func bindData(flickrPhoto : FlickrPhoto){
         let flickrImageEndPoint = FlickrImageEndPoint.init(photoId: flickrPhoto.id ?? "")
         RouterManager.sharedInstance.fetchData(for: flickrImageEndPoint, fetchType: .cache, success: { (imageSizeResponse : ImageSizeResponse) in
@@ -45,10 +50,8 @@ class GalleryCollectionViewCell: UICollectionViewCell {
                             break
                         }
                     }
-                    
                 }
             }
-            
         }) { (error) in
             //
         }
