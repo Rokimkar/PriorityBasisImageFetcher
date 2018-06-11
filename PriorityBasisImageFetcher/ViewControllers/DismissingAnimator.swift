@@ -9,7 +9,7 @@
 import UIKit
 
 class DismissingAnimator : NSObject,UIViewControllerAnimatedTransitioning{
-    let duration = 1.0
+    let duration = 0.22
     var originFrame = CGRect.zero
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -26,7 +26,7 @@ class DismissingAnimator : NSObject,UIViewControllerAnimatedTransitioning{
         
         UIView.animate(withDuration: duration, delay: 0.0, options: [], animations: {
             
-            fromView.transform = CGAffineTransform(scaleX: self.originFrame.size.width/fromView.frame.size.width, y: self.originFrame.size.height/(fromView.frame.size.height-10))
+            fromView.transform = CGAffineTransform(scaleX: self.originFrame.size.width/fromView.frame.size.width, y: self.originFrame.size.height/(fromView.frame.size.height))
             fromView.center = CGPoint(
                 x: self.originFrame.midX,
                 y: self.originFrame.midY

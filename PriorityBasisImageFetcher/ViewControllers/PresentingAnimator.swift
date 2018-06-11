@@ -11,7 +11,7 @@ import UIKit
 class PresentingAnimator : NSObject,UIViewControllerAnimatedTransitioning{
     
     var originFrame = CGRect.zero
-    var duration = 0.5
+    var duration = 0.33
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration

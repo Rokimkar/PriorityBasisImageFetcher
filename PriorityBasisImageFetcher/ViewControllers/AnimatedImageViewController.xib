@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,15 +23,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="14n-SC-U3l">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="14n-SC-U3l" secondAttribute="height" multiplier="1:1" id="2bC-fH-9lX"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="14n-SC-U3l" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="1Nb-i6-hyb"/>
-                <constraint firstItem="14n-SC-U3l" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="RIY-07-Kvb"/>
-                <constraint firstItem="14n-SC-U3l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Vi8-dK-Ako"/>
-                <constraint firstItem="14n-SC-U3l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eW0-Vo-obc"/>
+                <constraint firstItem="14n-SC-U3l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6G5-a7-ryu"/>
+                <constraint firstItem="14n-SC-U3l" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Psz-nc-hDY"/>
+                <constraint firstItem="14n-SC-U3l" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="qBb-0d-ZnI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
