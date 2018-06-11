@@ -10,35 +10,35 @@ import UIKit
 
 class ImageRouterManager{
     static let sharedInstance = ImageRouterManager()
+    var imageFetcherQueue = OperationQueue()
+    var imageFetchOperations : [String : ImageDataFetchOperation]? = [:]
     
     func fetchImage(for urlStr : String,success : @escaping (UIImage)->Void,failure :@escaping (Error)->Void){
-        CacheRouter.readData(for: urlStr, cacheTime: 60, success: { (imageData) in
-            if let image = UIImage.init(data: imageData){
-                success(image)
+        if let fetchOperation = imageFetchOperations?[urlStr]{
+            if fetchOperation.isExecuting == true{
+                fetchOperation.failure = failure
+                fetchOperation.success = success
+                fetchOperation.qualityOfService = .userInitiated
+            }else{
+                fetchOperation.cancel()
+                let imageFetchOperation = ImageDataFetchOperation.init(with: urlStr)
+                imageFetchOperation.success = success
+                imageFetchOperation.failure = failure
+                imageFetchOperation.qualityOfService = .utility
+                imageFetcherQueue.addOperation(imageFetchOperation)
+                imageFetchOperations?[urlStr] = imageFetchOperation
             }
-        }) { (error) in
-            self.fetchImageFromNetwork(for: urlStr, success: { (imageData) in
-                if let image = UIImage.init(data: imageData){
-                    CacheRouter.writeToCache(for: urlStr, cacheTime: 60, data: imageData)
-                    success(image)
-                }
-            }, failure: { (error) in
-                failure(error)
-            })
-        }
-        
+        }else{
+            let imageFetchOperation = ImageDataFetchOperation.init(with: urlStr)
+            imageFetchOperation.success = success
+            imageFetchOperation.failure = failure
+            imageFetchOperation.qualityOfService = .background
+            imageFetcherQueue.addOperation(imageFetchOperation)
+            imageFetchOperations?[urlStr] = imageFetchOperation
+      }
     }
     
-    func fetchImageFromNetwork(for urlStr : String,success : @escaping (Data)->Void,failure :@escaping (Error)->Void){
-        guard let url = URL(string:urlStr) else{return}
-        URLSession.shared.dataTask(with: url) { (data, urlResponse, error) in
-            if let err = error{
-                failure(err)
-            }
-            guard let imageData = data else {
-                return
-            }
-            success(imageData)
-            }.resume()
+    func resetState(){
+        imageFetchOperations?.removeAll()
     }
 }

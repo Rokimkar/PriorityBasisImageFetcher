@@ -30,7 +30,7 @@ class CacheRouter{
                 let now = Date()
                 let timeDifference = abs(Int(cacheData.savedTime.timeIntervalSince(now)))
                 let cacheDurationIntegerValue = Int(request.cacheTime)
-                if cacheDurationIntegerValue > timeDifference{
+                if cacheDurationIntegerValue < timeDifference{
                     failure(NSError.init(domain: "Cache expired", code: 0, userInfo: [:]))
                 }else{
                     success(cacheData.data)
@@ -49,7 +49,7 @@ class CacheRouter{
             let now = Date()
             let timeDifference = abs(Int(cacheData.savedTime.timeIntervalSince(now)))
             let cacheDurationIntegerValue = Int(cacheTime)
-            if cacheDurationIntegerValue > timeDifference{
+            if cacheDurationIntegerValue < timeDifference{
                 failure(NSError.init(domain: "Cache expired", code: 0, userInfo: [:]))
             }else{
                 success(cacheData.data)

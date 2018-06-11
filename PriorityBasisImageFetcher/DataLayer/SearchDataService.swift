@@ -14,6 +14,7 @@ class SearchDataService{
     func fetchImageData(endPoint : EndPointType,success : @escaping SearchResponse,failure : @escaping (Error) -> Void){
         RouterManager.sharedInstance.fetchData(for: endPoint, fetchType: .cache, success: { (searchResponse : SearchPhotosResponse) in
             if let photosRepo = searchResponse.photos{
+                ImageRouterManager.sharedInstance.resetState()
                 success(photosRepo)
             }else{
                 failure(NSError.init(domain: "Photos not fetched", code: 0, userInfo: [:]))
