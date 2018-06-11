@@ -28,6 +28,7 @@ class SearchResultViewController: UIViewController {
     }
     
     func setUpGalleryCollectionView(){
+        galleryCollectionView.cellClickedDelegate = self
         galleryCollectionView.imageCollectionViewType = .fourImage
         galleryCollectionView.updateCollectionView()
         galleryCollectionView.searchDataService = searchDataService
@@ -72,4 +73,19 @@ extension SearchResultViewController : UIActionSheetDelegate{
         }
         galleryCollectionView.updateCollectionView()
     }
+}
+
+extension SearchResultViewController : CellClickedProtocol{
+    func cellClicked(indexPath: IndexPath) {
+        let cell = galleryCollectionView.cellForItem(at: indexPath) as! GalleryCollectionViewCell
+        let animatedVC = AnimatedImageViewController.init(nibName: "AnimatedImageViewController", bundle: nil)
+        animatedVC.contentImage = cell.contentImageView.image
+        animatedVC.contextFrame = galleryCollectionView.convert(cell.frame, to: self.view)
+        let navigationVC = UINavigationController.init()
+        navigationVC.pushViewController(animatedVC, animated: true)
+        navigationVC.transitioningDelegate = animatedVC
+        self.present(navigationVC, animated: true, completion: nil)
+    }
+    
+    
 }

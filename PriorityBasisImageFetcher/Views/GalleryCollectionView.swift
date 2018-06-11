@@ -14,11 +14,16 @@ enum ImageCollectionViewType{
     case fourImage
 }
 
+protocol CellClickedProtocol {
+    func cellClicked(indexPath : IndexPath)
+}
+
 class GalleryCollectionView: UICollectionView {
     
     weak var searchDataService : SearchDataService?
     var photosRepo : PhotosRepo?
     var imageCollectionViewType = ImageCollectionViewType.threeImage
+    var cellClickedDelegate : CellClickedProtocol?
     
     func commonInit(){
         self.register(UINib.init(nibName: "GalleryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
@@ -69,6 +74,10 @@ extension GalleryCollectionView : UICollectionViewDataSource,UICollectionViewDel
             cell.bindData(flickrPhoto: photo)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellClickedDelegate?.cellClicked(indexPath: indexPath)
     }
     
 }
